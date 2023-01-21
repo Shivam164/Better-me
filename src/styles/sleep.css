@@ -1,0 +1,10 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.header h2 {
+    font-size: 180px;
+    width: 40%;
+    box-sizing: border-box;
+}
