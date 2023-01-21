@@ -1,0 +1,36 @@
+@font-face {
+    font-family: 'Rocher';
+    src: url(https://assets.codepen.io/9632/RocherColorGX.woff2);
+  }
+
+@font-palette-values --Mint {
+    font-family: Rocher;
+    base-palette: 7;
+  }
+
+.Navbar{
+    background-color: grey;
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 3rem;
+}
+
+.Navbar__links{
+    padding-top: 0.5rem;
+}
+
+.Navbar__links > a {
+    text-decoration: none;
+    color: white;
+    margin-right: 20px;
+    font-weight: bold;
+    margin: 0 1rem;
+    cursor: pointer;
+}
+
+.Navbar__logo{
+    font-size: 30px;
+    font-weight: 800;
+    color: white;
+    font-palette: --Mint;
+}

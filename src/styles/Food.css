@@ -1,0 +1,12 @@
+.food__banner{
+    display: flex;
+    flex-direction: row;
+    margin: 0 3rem 3rem 0;
+    /* box-shadow: 0 0 2rem; */
+}
+
+.food__banner__text{
+    font-size:100px;
+    font-weight: 800;
+    padding-top: 5rem;
+}
