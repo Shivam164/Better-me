@@ -3,6 +3,7 @@ import './App.css';
 import SignIn from './Pages/SignIn';
 import SignUp from './Pages/SignUp';
 import Food from './Pages/Food';
+import Sleep from './Pages/Sleep';
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       {/* <SignIn/> */}
       {/* <SignUp/> */}
       <Food/>
+      <Sleep/>
     </div>
   );
 }
