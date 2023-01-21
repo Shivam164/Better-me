@@ -1,10 +1,51 @@
+/* .sleep {
+    margin-left: 10rem;
+} */
 .header {
+    margin-left: 5rem;
     display: flex;
     justify-content: space-between;
+    margin-bottom: 10rem;
 }
 
-.header h2 {
-    font-size: 180px;
-    width: 40%;
-    box-sizing: border-box;
+.heading {
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    font-weight: 450;
+    justify-content:flex-start;
 }
+
+.heading h2 {
+    font-size: 180px;
+    margin: 0;
+    padding: 0;
+}
+.header img {
+    margin-left: 0;
+    margin-top: 4rem;
+    width: 50%;
+    height: 50rem;
+}
+
+.tip1 p{
+   margin: 0;
+
+}
+
+.tip2,
+.tip4 {
+    display:flex;
+    justify-content: center;
+}
+
+.tip3 {
+    display: flex;
+    justify-content: end;
+}
+
+.tips p {
+    width: 40%;
+    font-size: 50px;
+}
+
