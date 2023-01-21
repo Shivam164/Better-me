@@ -1,0 +1,10 @@
+.foodCard{
+    border: 2px solid black;
+    margin: 2em;
+    padding: 1em;
+    width: fit-content;
+}
+
+.foodCard__title{
+    width: 50%;
+}
