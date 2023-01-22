@@ -1,6 +1,12 @@
 /* .sleep {
     margin-left: 10rem;
 } */
+
+.sleep{
+    background-color: rgb(73, 75, 74);
+    padding-bottom: 5rem;
+}
+
 .header {
     margin-left: 5rem;
     display: flex;
@@ -14,10 +20,11 @@
     align-items: baseline;
     font-weight: 450;
     justify-content:flex-start;
+    flex:0.6;
 }
 
 .heading h2 {
-    font-size: 180px;
+    font-size: 120px;
     margin: 0;
     padding: 0;
 }
@@ -42,10 +49,42 @@
 .tip3 {
     display: flex;
     justify-content: end;
+    margin-right: 4rem;
 }
 
 .tips p {
     width: 40%;
-    font-size: 50px;
+    font-size: 30px;
+    color: white;
 }
 
+.tips p:hover{
+    font-weight: 500;
+}
+
+.sleep__image{
+    flex: 0.4;
+}
+
+.image2__sleep{
+    height: 100px;
+}
+
+#gd{
+    margin-left: 450px
+}
+
+.all__tips{
+    background-color: black;
+    margin: 4rem 5rem;
+    border-radius: 20px
+}
+
+.sleep__quality{
+    background-color: rgb(164, 155, 155);
+    width: fit-content;
+    margin: auto;
+    padding: 2rem;
+    border-radius: 1.5rem;
+    margin-bottom: 2rem;
+}

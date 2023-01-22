@@ -1,8 +1,10 @@
 import React, { useState } from "react";
+import Navbar from "../components/Navbar";
 
 export default function Exercise() {
   return (
     <div>
+      <Navbar/>
       <label htmlFor="muscle">Select the muscle you want to train</label>
       <select name="muscle" id="muscle" className="targetMuscle">
         <option value="abdominals">Abdominals</option>
@@ -21,7 +23,6 @@ export default function Exercise() {
         <option value="traps">Traps</option>
         <option value="triceps">Triceps</option>
       </select>
-      {exercise && <div></div>}
     </div>
   );
 }

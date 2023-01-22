@@ -1,21 +1,80 @@
-import React from "react";
+import React, { useEffect } from "react";
+import Navbar from "../components/Navbar";
 import "../styles/sleep.css";
 import img from "../utils/images/sleep-image.png";
-// import Plotly from "plotly.js";
+import Plotly from 'plotly.js-dist-min'
+import FormControl from '@mui/material/FormControl';
+import { FormHelperText, Input, InputLabel } from "@mui/material";
+import InputSlider from "../components/InputSlider";
+import { Client, Databases } from "appwrite";
 
 export default function Sleep() {
+
+  const client = new Client();
+  
+  const databases = new Databases(client);
+
+  client
+        .setEndpoint('http://localhost:5000/v1') // Your API Endpoint
+        .setProject(`${process.env.REACT_APP_PROJECT_ID}`) // Your project ID
+  ;
+
+
+  const getGraph = () => {
+    const promise = databases.listDocuments(`${process.env.REACT_APP_SLEEP_DATABASE}`, `${process.env.REACT_APP_SLEEP_COLLECTION}`);
+  
+    promise.then(function (response) {
+        var a = [];
+        for(let value in response.documents){
+          console.log(value);
+          a.push(response.documents[value].SleepQuality);
+        }
+        console.log(a);
+        {Plotly.newPlot(
+          "gd",
+          {
+            data: [{ y:a }],
+            layout: { width: 600, height: 400 },
+          }
+        )}
+        console.log(response); // Success
+    }, function (error) {
+        console.log(error); // Failure
+    });
+
+    
+  }
+
+  useEffect(() => {
+    getGraph();
+  },[]);
+
   return (
+    <>
+    <Navbar/>
     <div className="sleep">
       <div className="tips">
         <div className="header">
           <div className="heading">
-            <h2>Tips for</h2>
-            <h2>better</h2>
-            <h2>sleep</h2>
+            <h2>Invest in</h2>
+            <h2>Rest</h2>
           </div>
-          <img src={img} alt="sleeping lady" />
+          <div className="sleep__image">
+            <img src={img} className="image2__sleep" alt="sleeping lady" />
+          </div>
         </div>
-        <div>
+
+          {/* FORM  */}
+
+        <div className="sleep__quality">
+          <InputSlider/>
+        </div>
+
+      {/* GRAPH  */}
+        <div id="gd"></div>
+      
+        {/* TIPS */}
+        <div className="all__tips">
           <div className="tip2 tips">
             <p>
               Make sure your bedroom is quiet, dark, relaxing, and at a
@@ -36,40 +95,9 @@ export default function Sleep() {
             </p>
           </div>
         </div>
-      </div>
 
-      <form>
-        <h2>Please enter the following details</h2>
-        <div className="number-of-hours">
-          <label htmlFor="number-of-hours">
-            No of hours you slept yesterday
-          </label>
-          <input type="number" id="number-of-hours" name="numberofhours" />
-        </div>
-
-        <div className="sleep-rating">
-          <label htmlFor="sleep-rating">
-            How would you rate your sleep (from 1-5)
-          </label>
-          <input
-            type="number"
-            id="sleep-rating"
-            name="sleeprating"
-            max={5}
-            min={1}
-          />
-        </div>
-        <button type="submit">Submit</button>
-      </form>
-      <div>
-        {/* {Plotly.newPlot(
-          "gd",
-          {
-            data: [{ y: [1, 2, 3] }],
-            layout: { width: 600, height: 400 },
-          }
-        )} */}
       </div>
     </div>
+    </>
   );
 }

@@ -9,27 +9,27 @@
   }
 
 .Navbar{
-    background-color: grey;
+    background-color: #343045;
     display: flex;
     justify-content: space-between;
     padding: 1rem 3rem;
 }
 
 .Navbar__links{
-    padding-top: 0.5rem;
+    padding-top: 0.7rem;
 }
 
 .Navbar__links > a {
     text-decoration: none;
     color: white;
     margin-right: 20px;
-    font-weight: bold;
+    /* font-weight: ; */
     margin: 0 1rem;
     cursor: pointer;
 }
 
 .Navbar__logo{
-    font-size: 30px;
+    font-size: 40px;
     font-weight: 800;
     color: white;
     font-palette: --Mint;
