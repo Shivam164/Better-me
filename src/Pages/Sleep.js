@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import "../styles/sleep.css";
 import img from "../utils/images/sleep-image.png";
@@ -13,6 +13,8 @@ export default function Sleep() {
   const client = new Client();
   
   const databases = new Databases(client);
+
+  const [change, setChange] = useState(0);
 
   client
         .setEndpoint('http://localhost:5000/v1') // Your API Endpoint
@@ -47,7 +49,7 @@ export default function Sleep() {
 
   useEffect(() => {
     getGraph();
-  },[]);
+  },[change]);
 
   return (
     <>
@@ -57,18 +59,20 @@ export default function Sleep() {
         <div className="header">
           <div className="heading">
             <h2>Invest in</h2>
-            <h2>Rest</h2>
+            <h2 className="rest">Rest.</h2>
           </div>
           <div className="sleep__image">
-            <img src={img} className="image2__sleep" alt="sleeping lady" />
+            <img src={img} />
           </div>
         </div>
 
           {/* FORM  */}
 
         <div className="sleep__quality">
-          <InputSlider/>
+          <InputSlider change = {change} setChange = {setChange} />
         </div>
+
+        <div className="takecare">Don't let your sleep quality to go lower than 60 for more than 2 consectutive days.</div>
 
       {/* GRAPH  */}
         <div id="gd"></div>

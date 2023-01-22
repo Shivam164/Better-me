@@ -12,6 +12,9 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { Client, Account } from "appwrite";
+import uniqid from "uniqid";
+import { useNavigate } from 'react-router-dom';
 
 function Copyright(props) {
   return (
@@ -29,9 +32,30 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function SignUp() {
+
+
+const history = useNavigate();
+const client = new Client();
+const account = new Account(client);
+
+client
+    .setEndpoint('http://localhost:5000/v1') // Your API Endpoint
+    .setProject(`${process.env.REACT_APP_PROJECT_ID}`) // Your project ID
+;
+
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
+    const promise = account.create(uniqid(), data.get('email'), data.get('password'));
+
+    promise.then(function (response) {
+        console.log(response); // Success
+        history("/");
+    }, function (error) {
+        console.log(error); // Failure
+    });
+
     console.log({
       email: data.get('email'),
       password: data.get('password'),
@@ -98,12 +122,6 @@ export default function SignUp() {
                   type="password"
                   id="password"
                   autoComplete="new-password"
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <FormControlLabel
-                  control={<Checkbox value="allowExtraEmails" color="primary" />}
-                  label="I want to receive inspiration, marketing promotions and updates via email."
                 />
               </Grid>
             </Grid>

@@ -15,7 +15,7 @@ const Input = styled(MuiInput)`
   width: 42px;
 `;
 
-export default function InputSlider() {
+export default function InputSlider({setChange, change}) {
   const [value, setValue] = React.useState(30);
 
   const handleSliderChange = (event, newValue) => {
@@ -53,6 +53,7 @@ export default function InputSlider() {
 
         promise.then(function (response) {
             console.log(response); // Success
+            setChange(1 - change);
         }, function (error) {
             console.log(error); // Failure
         });

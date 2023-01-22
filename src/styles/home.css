@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
+
+.home{
+    background-color: #343045;
+    height: 100vh;
+    padding-bottom: 10rem;
+}
+
+.home__banner{
+    display: flex;
+    padding: 2rem;
+}
+
+.home__banner__text{
+    flex: 0.6;
+}
+
+.home__banner__voiceinput{
+    flex: 0.4;
+    padding: 2rem;
+}
+
+.home__banner__text > p{
+    font-size: 100px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    margin: 0;
+    text-align: left;
+    color: white;
+}
+
+.home__banner__text__quicker{
+    background: -webkit-linear-gradient(#C0B7E8, #8176AF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.health__aspects{
+    margin-top: 3rem;   
+}
+
+.health__factors{
+    display: flex;
+}
+
+.health__factors > div{
+    flex: 0.2;
+    border: 2px solid white;
+    margin: 0 1rem;
+    background-image: radial-gradient(#3A3456, #211E2E);
+    padding-bottom: 2rem;
+}
+
+.health__factors > div > h2{
+    color: white;
+    font-weight: 600;
+}
+
+.health__factors > div > div{
+    color: white;
+    font-size: 15px;
+    width: 80%;
+    margin: auto;
+    margin-bottom: 1rem;
+}
+
+.health__aspects__header{
+    font-size: 30px;
+    font-family: 'Montserrat';
+    color: white;
+    margin-bottom: 3rem;
+}
+
+.line{
+    height: 1px;
+    width: 800px;
+    margin: auto;
+    background-color: white;
+}

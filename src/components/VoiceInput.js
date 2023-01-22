@@ -21,11 +21,6 @@ const VoiceInput = () => {
 
   const history = useNavigate();
 
-  // useEffect(() => {
-  //   if(!transcript)return;
-  //   getData();
-  // },[transcript]);
-
   if (!browserSupportsSpeechRecognition) {
     return <span>Browser doesn't support speech recognition.</span>;
   }
